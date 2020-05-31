@@ -1,0 +1,33 @@
+create database store;
+
+use store;
+create table customer(
+	cid int primary key,
+    name varchar(25),
+    phone_number varchar(25)
+);
+
+use store;
+create table credit(
+		credit_id int auto_increment primary key,
+        amount int ,
+        cid int ,
+        foreign key(cid) references customer(cid));
+        
+        
+
+use store;
+create table debit(
+		debit_id int auto_increment primary key,
+        amount int ,
+        cid int ,
+        foreign key(cid) references customer(cid));
+        
+use store;
+alter table credit add column transaction_time datetime;
+
+use store;
+alter table debit add column transaction_time datetime;
+
+        
+        
